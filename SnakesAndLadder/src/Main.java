@@ -15,22 +15,23 @@ public class Main {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        for(int i=3; i>0; i--) {
+        while (true){
             try {
                 // CREATE_USER <name> <email>
-                // CREATE_GAME <numberOfPlayers> <emailId1, emailId2,....> <boardSize> <numberOfDices>
-                // START_GAME
+                // START_GAME <numberOfPlayers> <emailId1, emailId2,....> <boardSize> <numberOfDices> <maxDiceSize> <numberOfPieces>
                 System.out.println("Enter CREATE_USER or START_GAME command\n >");
                 String input = reader.readLine().toString();
+                if(input.equals("EXIT_GAME"))
+                    break;
                 commandRegistry.execute(input);
             } catch (Exception e) {
                 throw new InvalidCommandException();
             }
+            //Commands to run the game
             //CREATE_USER Rohit rmail.com
             //CREATE_USER Varsha vmail.com
-            //
-
-
+            //START_GAME 2 rmail.com vmail.com 10000 2 50 4 0
+            //To exit the game => EXIT_GAME
         }
     }
 }

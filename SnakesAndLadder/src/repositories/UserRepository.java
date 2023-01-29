@@ -8,16 +8,16 @@ import java.util.List;
 public class UserRepository {
     private static List<User> users = new ArrayList<>();
 
-    public static void printUsers() {
-        users.forEach(user1 -> System.out.println(user1));
+    public void printUsers() {
+        users.forEach(user -> System.out.println(user));
     }
 
-    public static void addUser(User user) {
+    public void addUser(User user) {
         users.add(user);
         printUsers();
     }
 
-    public static User getUser(String emailId) {
+    public User getUser(String emailId) {
         for(User user : users) {
             if (user.getEmail().equals(emailId))
                 return user;

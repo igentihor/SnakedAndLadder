@@ -1,8 +1,9 @@
 package strategies;
 
-import models.Game;
-import models.Player;
+import models.Piece;
+
+import java.util.List;
 
 public interface IWinningStrategy {
-    public boolean checkIfGameEnded(Player player, int boardSize);
+    boolean checkIfGameEnded(List<Piece> pieces, int boardSize);
 }

@@ -1,12 +1,14 @@
 package models;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-public class Cell {
-    private int index;
+@Setter
+public abstract class Cell {
+    public int index;
 
-    public Cell(int index) {
-        this.index = index;
-    }
+//    public Cell(int index) {
+//        this.index = index;
+//    }
 }

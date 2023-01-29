@@ -1,7 +1,6 @@
 package commands;
 
 import controller.UserController;
-import exceptions.InvalidCommandException;
 
 public class CreateUserCommand implements ICommand {
     UserController userController = new UserController();
@@ -17,6 +16,8 @@ public class CreateUserCommand implements ICommand {
     @Override
     public void execute(String command) {
         String[] userDetails = command.split(" ");
-        userController.createUser(userDetails[1], userDetails[2]);
+        String userName = userDetails[1];
+        String email = userDetails[2];
+        userController.createUser(userName, email);
     }
 }

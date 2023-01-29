@@ -11,7 +11,7 @@ public class Piece {
     public Piece(int color, int pieceNumber) {
         this.color = Color.values()[color];
         this.pieceNumber = pieceNumber;
-        this.cell = new Cell(0);
+        this.cell = new NormalCell(0);
     }
 
     public void movePiece(Board board, int moveBy) {

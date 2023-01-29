@@ -8,8 +8,8 @@ public class HumanPlayer extends Player {
     private User user;
     UserRepository userRepository = new UserRepository();
 
-    HumanPlayer(String emailId, int numPieces, int color) {
+    HumanPlayer(User user, int numPieces, int color) {
         super(numPieces, color);
-        this.user = userRepository.getUser(emailId);
+        this.user = user;
     }
 }

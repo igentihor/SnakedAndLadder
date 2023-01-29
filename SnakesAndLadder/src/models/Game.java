@@ -1,6 +1,7 @@
 package models;
 
 import lombok.Getter;
+import strategies.IWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ public class Game {
     private Board board;
     private List<Dice> dices = new ArrayList<>();
     private List<Player> players = new ArrayList<>();
+    private IWinningStrategy winningStrategy;
 
     public static Builder getBuilder() {
         return new Builder();
@@ -40,10 +42,14 @@ public class Game {
             return this;
         }
 
-        public Builder setPlayers(int numPlayers, List<String> emailIDs) {
+        public Builder setPlayers(int numPlayers, List<User> users) {
             for(int i=0; i<numPlayers; i++) {
-                game.players.add(new HumanPlayer(emailIDs.get(i), game.numPieces, i));
+                game.players.add(new HumanPlayer(users.get(i), game.numPieces, i));
             }
+            return this;
+        }
+        public Builder setWinningStrategy(IWinningStrategy winningStrategy) {
+            game.winningStrategy = winningStrategy;
             return this;
         }
 
